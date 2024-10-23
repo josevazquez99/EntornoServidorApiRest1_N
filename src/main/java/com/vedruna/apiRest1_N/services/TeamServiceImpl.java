@@ -17,19 +17,18 @@ public class TeamServiceImpl implements TeamServiceI {
     @Autowired
     TeamRepositoryI teamRepo;
 
-
     @Override
     public List<TeamDTO> showAllTeams() {
         List<Team> teams = teamRepo.findAll();
-        List<TeamDTO> teamsDTO = new ArrayList<TeamDTO>();
-
+        List<TeamDTO> teamsDTO = new ArrayList<>();
+    
         for (Team t : teams) {
-            teamsDTO.add(new TeamDTO(t));
+            teamsDTO.add(new TeamDTO(t)); 
         }
-
+    
         return teamsDTO;
     }
-
+    
     @Override
     public TeamDTO showTeamByName(String name) {
         return new TeamDTO(teamRepo.findByName(name));

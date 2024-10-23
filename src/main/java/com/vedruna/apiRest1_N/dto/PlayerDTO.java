@@ -14,13 +14,12 @@ public class PlayerDTO {
     private Integer playerId;
     private String name;
     private Integer age;
-    private TeamDTO teamdto;
+    private Integer teamId; 
 
     public PlayerDTO(Player p) {
         this.playerId = p.getPlayerId();
         this.name = p.getName();
         this.age = p.getAge();
-        this.teamdto = new TeamDTO(p.getPlayerTeam());
+        this.teamId = p.getPlayerTeam() != null ? p.getPlayerTeam().getTeamId() : null; 
     }
-    
 }
