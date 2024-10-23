@@ -1,7 +1,10 @@
 package com.vedruna.apiRest1_N.dto;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.vedruna.apiRest1_N.persistance.models.Team;
+import com.vedruna.apiRest1_N.persistance.models.Player;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,12 +16,13 @@ import lombok.NoArgsConstructor;
 public class TeamDTO {
     private Integer teamId;
     private String name;
+    private List<PlayerDTO> players; 
 
     public TeamDTO(Team t) {
         this.teamId = t.getTeamId();
-        this.name = t.getName() ;
-
+        this.name = t.getName();
+        this.players = t.getPlayersWithTeam() != null ? t.getPlayersWithTeam().stream()
+            .map(PlayerDTO::new)
+            .collect(Collectors.toList()) : null;
     }
-
-
 }

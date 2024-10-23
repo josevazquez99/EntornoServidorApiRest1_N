@@ -40,9 +40,9 @@ public class PlayerServiceImpl implements PlayerServiceI {
             TeamDTO teamDTO = new TeamDTO();
             teamDTO.setTeamId(team.getTeamId());
             teamDTO.setName(team.getName());
-            playerDTO.setTeamdto(teamDTO);
+            playerDTO.setTeamId(teamDTO.getTeamId());
         } else {
-            playerDTO.setTeamdto(null);
+            playerDTO.setTeamId(null);
         }
 
         playersDTO.add(playerDTO);
